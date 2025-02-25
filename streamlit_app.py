@@ -45,12 +45,11 @@ if ingredients_list:
         ingredients_string += fruit_chosen + ' '
 
     # st.write (ingredients_string)
-    order_filled = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
-    order_uid   = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
+    # order_filled = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
+    # order_uid   = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
 
     my_insert_stmt = """insert into smoothies.public.orders
-            values ('""" +ingredients_string+ """', '"""+name_on_order+"""','"""+order_filled+"""',
-            '"""+order_uid+"""')"""
+            values ('""" +ingredients_string+ """', '"""+name_on_order+"""')"""
 
     st.write(my_insert_stmt)
     # st.stop()
