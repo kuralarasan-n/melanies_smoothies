@@ -59,11 +59,12 @@ if ingredients_list:
         sf_df = st.dataframe(data = smoothiefroot_response.json(), use_container_width = True)
 
     # st.write (ingredients_string)
-    # order_filled = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
-    # order_uid   = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
+    my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
+    editable_df = st.data_editor(my_dataframe)
+    my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
 
     my_insert_stmt = """insert into smoothies.public.orders
-            values ('""" +$ingredients_string+ """', '"""+$name_on_order+"""')"""
+            values ('"""+order_uid+"""','"""+order_filled+"""','""" +ingredients_string+ """', '"""+name_on_order+"""')"""
 
     st.write(my_insert_stmt)
     # st.stop()
