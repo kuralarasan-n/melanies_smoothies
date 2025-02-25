@@ -60,10 +60,9 @@ if ingredients_list:
 
     # st.write (ingredients_string)
     my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
-    if ORDER_UID:
-        session.sql(order_seq).collect()
-        st.text('order_uid')
-        my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
+    ORDER_UID = session.sql(order_seq).collect()
+    st.text('order_uid')
+    my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
 
     my_insert_stmt = """insert into smoothies.public.orders
             values ('"""+order_uid+"""','"""+order_filled+"""','""" +ingredients_string+ """', '"""+name_on_order+"""')"""
