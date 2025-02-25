@@ -63,13 +63,7 @@ if ingredients_list:
     # ORDER_UID = session.sql(order_seq).collect()
     # st.text('order_uid')
     # my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
-    cur = cur.cursor()
-    cur.execute(my_insert_stmt = """insert into smoothies.public.orders
-            values ('""" +ingredients_string+ """', '"""+name_on_order+"""')""")
-    my_insert_stmt = cur.fetchall()
-    for row in results:
-        print(row)
-except exception as e:
+    
 
     st.write(my_insert_stmt)
     # st.stop()
