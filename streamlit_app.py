@@ -67,6 +67,7 @@ if ingredients_list:
     cur.execute(my_insert_stmt = """insert into smoothies.public.orders
             values ('""" +ingredients_string+ """', '"""+name_on_order+"""')""")
     my_insert_stmt = cur.fetchall()
+except exception as e:
 
     st.write(my_insert_stmt)
     # st.stop()
