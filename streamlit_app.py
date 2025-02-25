@@ -60,7 +60,6 @@ if ingredients_list:
 
     # st.write (ingredients_string)
     my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
-    editable_df = st.data_editor(my_dataframe)
     my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_UID")==0).collect()
 
     my_insert_stmt = """insert into smoothies.public.orders
